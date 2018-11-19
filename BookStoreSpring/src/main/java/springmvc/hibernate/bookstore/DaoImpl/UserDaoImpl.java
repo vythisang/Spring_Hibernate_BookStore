@@ -40,4 +40,11 @@ public class UserDaoImpl implements UserDao{
 		
 	}
 
+	@Transactional
+	public boolean registerUser(User user) {
+		Session session = sessionFactory.getCurrentSession();
+		session.persist(user);
+		return true;
+	}
+
 }

@@ -9,7 +9,7 @@ $(document).ready(function(){
 		
 		$.ajax({
 			
-			url:"http://localhost:8080/BookStoreSpring/api/checkLogin/",
+			url:"/BookStoreSpring/api/checkLogin/",
 			type:"GET",
 			data:{
 				name : name,
@@ -19,8 +19,8 @@ $(document).ready(function(){
 				if(value == "false"){
 					$("#ketqua").html("Account is illegal");
 				}else{
-					currentLink = window.location.href;
-					link = currentLink.replace("login","");
+					currentlyLink = window.location.href;
+					link = currentlyLink.replace("login","");
 					window.location = link;
 				}
 				
@@ -30,6 +30,43 @@ $(document).ready(function(){
 	
 	});
 	
+	
+	$("#btnRegister").click(function(){
+		
+		var name  	  = $("#name").val();
+		var password  = $("#password").val();
+		var email      = $("#email").val();
+		var dob      = $("#dob").val();
+		
+		$.ajax({
+			
+			url:"/BookStoreSpring/api/checkRegister/",
+			type:"GET",
+			data:{
+				name:name,
+				password:password,
+				email:email,
+				dob:dob
+			},
+			success:function(value){
+				if(value=="true"){
+					$("#resultRegister").html("Register successfull");
+				}else{
+					$("#resultRegister").html("This name have existed");
+					
+				}
+			}
+		});
+		
+		
+	});
+	
+	
+	$("#comeToLogin").click(function(){
+		currentlyLink = window.location.href;
+		link = currentlyLink.replace("register","login");
+		window.location = link;
+	})
 	
 	
 	

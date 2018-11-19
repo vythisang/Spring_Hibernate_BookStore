@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Login</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <link rel="stylesheet"
 	href='<c:url value="resources/css/bootstrap.min.css" />' />
 <link rel="stylesheet"
@@ -18,11 +18,11 @@
 	href='<c:url value="resources/css/ace-skins.min.css" />' />
 <link rel="stylesheet"
 	href='<c:url value="resources/css/ace-rtl.min.css" />' />
+
+<title>Register</title>
+
 </head>
 <body class="login-layout">
-	<div>
-		<form id="ajax" action=${pageContext.request.contextPath} ></form>
-	</div>
 	<div class="main-container">
 		<div class="main-content">
 			<div class="row">
@@ -30,7 +30,7 @@
 					<div class="login-container">
 						<div class="center">
 							<h1>
-								<i class="ace-icon fa fa-leaf green"></i> <span class="red">Shop</span>
+								<i class="ace-icon fa fa-leaf green"></i> <span class="red">Book store</span>
 								<span class="white" id="id-text2">Application</span>
 							</h1>
 							<h4 class="blue" id="id-company-text">&copy; Industrial HCM</h4>
@@ -44,64 +44,85 @@
 								<div class="widget-body">
 									<div class="widget-main">
 										<h4 class="header blue lighter bigger">
-											<i class="ace-icon fa fa-coffee green"></i> Account
-											information
-
+											<i class="ace-icon fa fa-coffee green"></i> Create new account
 										</h4>
 
 										<div class="space-6"></div>
 
-										<fieldset>
+										
+											<fieldset>
+												<label class="block clearfix"> <span
+													class="block input-icon input-icon-right"> <input id="name"
+														type="text" class="form-control" placeholder="username" name="name" />
+														<i class="ace-icon fa fa-user"></i>
+												</span>
+												</label> 
+												
+												<label class="block clearfix"> <span
+													class="block input-icon input-icon-right"> <input id="password"
+														type="password" class="form-control" placeholder="password" name="password" />
+														<i class="ace-icon fa fa-lock"></i>
+												</span>
+												</label> 
+												
+												
+												<label class="block clearfix"> <span
+													class="block input-icon input-icon-right"> <input id="email"
+														type="text" class="form-control"                           
+														placeholder="email" name="email" /> <i class="ace-icon fa fa-user"  ></i>
+												</span>
+												</label>
+												
+												<label class="block clearfix"> <span
+													class="block input-icon input-icon-right"> <input id="dob"
+														type="text" class="form-control"                           
+														placeholder="day of birth" name="dob" /> <i class="ace-icon fa fa-user"  ></i>
+												</span>
+												</label>
+												
+
+												<div class="clearfix">
+													
+
+													<button type="submit" id="btnRegister"
+														class="width-35 pull-right btn btn-sm btn-primary" >
+														<i class="ace-icon fa fa-key"></i> <span
+															class="bigger-110">Register</span>
+													</button>
+												</div>
+												
+												<div class="clearfix">
+													<span id="resultRegister"></span>
+												</div>
+												
+												<div class="space-4"></div>
 											
-											 <label class="block clearfix">
-												<span class="block input-icon input-icon-right"> <input
-													type="text" class="form-control" id="name"
-													placeholder="username" name="name" /> <i
-													class="ace-icon fa fa-user"></i>
-											</span>
-											</label> <label class="block clearfix"> <span
-												class="block input-icon input-icon-right"> <input
-													type="password" class="form-control" placeholder="password"
-													name="password" id="password" /> <i
-													class="ace-icon fa fa-lock"></i>
-											</span>
-											</label>
-											<div class="space"></div>
-											<div class="clearfix">
-												<input type="submit" value="Login" id="btnLogin"
-													class="ace-icon fa fa-key" />
-											</div>
-
-											<div class="clearfix">
-												<span id="ketqua"  ></span>
-											</div>
-											<div class="space-4"></div>
-										</fieldset>
-
+											</fieldset>
 
 										<div class="space-6"></div>
 
-
 									</div>
-									<!-- /.widget-main -->
 
 									<div class="toolbar clearfix">
 
-
 										<div>
-											<a href="register" class="user-signup-link">
-												Register <i class="ace-icon fa fa-arrow-right"></i>
+											<a  id="comeToLogin"
+												class="user-signup-link">  Login <i
+												class="ace-icon fa fa-arrow-right"></i>
 											</a>
 										</div>
 									</div>
 								</div>
 								<!-- /.widget-body -->
 							</div>
-							<!-- /.login-box -->
+							
 
+								
+							<!-- /.signup-box -->
 						</div>
+						<!-- /.position-relative -->
 
-
+						
 					</div>
 				</div>
 				<!-- /.col -->
@@ -113,6 +134,9 @@
 
 
 
+
+
+	
 	<script src='<c:url value="resources/js/jquery-2.1.4.min.js" />'></script>
 	<script src='<c:url value="resources/js/custom.js" />'></script>
 

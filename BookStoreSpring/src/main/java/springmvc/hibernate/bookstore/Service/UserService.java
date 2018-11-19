@@ -17,4 +17,8 @@ public class UserService implements UserDao{
 		return userDao.isUserExists(name, password);
 	}
 
+	public boolean registerUser(User user) {
+		return userDao.registerUser(user);
+	}
+
 }

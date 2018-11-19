@@ -46,9 +46,9 @@ public class User {
 	public void setDob(Date dob) {
 		this.dob = dob;
 	}
-	public User(int id, String email, String password, String name, Date dob) {
+	public User(String email, String password, String name, Date dob) {
 		super();
-		this.id = id;
+		
 		this.email = email;
 		this.password = password;
 		this.name = name;
