@@ -33,7 +33,7 @@
 							<b class="arrow"></b>
 							<ul class="submenu">
 								<li class="">
-										<a href="BookForward">
+										<a href="book?pageId=1">
 											<i class="menu-icon fa fa-caret-right"></i>
 											Display all book
 										</a>

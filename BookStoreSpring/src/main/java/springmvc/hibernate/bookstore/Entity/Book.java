@@ -22,7 +22,7 @@ public class Book {
 	private String name;
 	private int sold_number;
 	private double price;
-	
+	private String imageBook;
 	
 	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="category_id")
@@ -34,6 +34,14 @@ public class Book {
 	private Set<AuthorBook> bs_author_book;
 	
 	
+	
+	
+	public String getImageBook() {
+		return imageBook;
+	}
+	public void setImageBook(String imageBook) {
+		this.imageBook = imageBook;
+	}
 	public Category getBs_category() {
 		return bs_category;
 	}
@@ -70,12 +78,13 @@ public class Book {
 	public void setPrice(double price) {
 		this.price = price;
 	}
-	public Book(int id, String name, int sold_number, double price) {
+	public Book(int id, String name, int sold_number, double price,String imageBook) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.sold_number = sold_number;
 		this.price = price;
+		this.imageBook= imageBook;
 	}
 	public Book() {
 		super();
