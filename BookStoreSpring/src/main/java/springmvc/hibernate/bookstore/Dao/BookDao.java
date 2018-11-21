@@ -6,9 +6,11 @@ import springmvc.hibernate.bookstore.Entity.Book;
 
 public interface BookDao {
 
-	List<Book> getAllBook();
-	
+
 	List<Book> getBooksLimit(int start, int count);
 	
 	Long getRowCount();
+	
+	Book getBookById(int id);
+	
 }

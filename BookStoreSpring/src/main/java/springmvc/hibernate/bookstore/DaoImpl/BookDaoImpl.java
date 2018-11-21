@@ -2,6 +2,7 @@ package springmvc.hibernate.bookstore.DaoImpl;
 
 import java.util.List;
 
+import javax.persistence.NoResultException;
 import javax.transaction.Transactional;
 
 import org.hibernate.Session;
@@ -14,32 +15,20 @@ import springmvc.hibernate.bookstore.Dao.BookDao;
 import springmvc.hibernate.bookstore.Entity.Book;
 
 @Repository
-public class BookDaoImpl implements BookDao{
+public class BookDaoImpl implements BookDao {
 
 	@Autowired
 	private SessionFactory sessionFactory;
-	
-	@Transactional
-	public List<Book> getAllBook() {
-		Session session = sessionFactory.getCurrentSession();
-		String sql = "from Book";
-		Query query = session.createQuery(sql,Book.class);
-		List<Book> books = query.list();
-		if(books!=null){
-			return books;
-		}
-		return null;
-	}
 
 	@Transactional
 	public List<Book> getBooksLimit(int start, int count) {
 		Session session = sessionFactory.getCurrentSession();
 		String sql = "from Book ";
-		Query query = session.createQuery(sql,Book.class);
-		query.setFirstResult(start-1);
+		Query query = session.createQuery(sql, Book.class);
+		query.setFirstResult(start - 1);
 		query.setMaxResults(count);
 		List<Book> books = query.list();
-		
+
 		return books;
 	}
 
@@ -48,8 +37,19 @@ public class BookDaoImpl implements BookDao{
 		Session session = sessionFactory.getCurrentSession();
 		String sql = "select count(*) from Book";
 		Query query = session.createQuery(sql);
-		long count =  (Long) query.uniqueResult();
+		long count = (Long) query.uniqueResult();
 		return count;
+	}
+
+	@Transactional
+	public Book getBookById(int id) {
+		Session session = sessionFactory.getCurrentSession();
+		String sql = "from Book where id= :id";
+		Query query = session.createQuery(sql, Book.class);
+		query.setParameter("id", id);
+		Book book = (Book) query.getSingleResult();
+
+		return book;
 	}
 
 }

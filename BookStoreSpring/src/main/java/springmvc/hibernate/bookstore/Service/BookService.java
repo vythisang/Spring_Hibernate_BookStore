@@ -14,9 +14,6 @@ public class BookService implements BookDao{
 	@Autowired
 	private BookDao bookDao;
 
-	public List<Book> getAllBook() {
-		return bookDao.getAllBook();
-	}
 
 	public List<Book> getBooksLimit(int start, int count) {
 		return bookDao.getBooksLimit(start, count);
@@ -24,6 +21,10 @@ public class BookService implements BookDao{
 
 	public Long getRowCount() {
 		return bookDao.getRowCount();
+	}
+
+	public Book getBookById(int id) {
+		return bookDao.getBookById(id);
 	}
 
 	

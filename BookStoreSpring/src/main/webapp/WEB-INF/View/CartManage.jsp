@@ -63,55 +63,49 @@
 
 						<div class="features_items">
 							<h2 class="title text-center">Features Items</h2>
-							
-							<c:forEach items="${books}" var="book">
-								<div class="col-sm-4">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src='<c:url value="resources/images/books/${book.getImageBook()}" />'
-													alt="s" width="40%" />
-												<a href="detaiBook?id=${book.getId()}"><h2>${book.getName()}</h2></a>
-	
-												
-											</div>
-										</div>
-									</div>
-								</div>
-							</c:forEach>
-							
+
+							<table class="table table-condensed">
+								<thead>
+									<tr class="cart_menu">
+										<td class="image">Item</td>
+										<td class="description"></td>
+										<td class="price">Price</td>
+										<td class="quantity">Quantity</td>
+									</tr>
+								</thead>
+								<tbody>
+
+									<c:forEach items="${carts}" var="cart">
+										<tr>
+											<td class="cart_product" style="width: 217px;"><img
+												src='<c:url value="resources/images/books/${cart.getImage()}" />'
+												width="30%" alt="s"></td>
+											<td class="cart_description">
+												<h4 id="name">${cart.getName()}</h4>
+											</td>
+											<td class="cart_price">
+												<p id="price" attr-price="${cart.getPrice()}">${cart.getPrice()}$</p>
+											</td>
+											<td class="cart_quantity"><input
+												class="cart_quantity_input" id="quantity" type="number"
+												name="quantity" min="1" value="${cart.getQuantity()}" /></td>
+
+
+										</tr>
+									</c:forEach>
+
+
+								</tbody>
+							</table>
+
+						<h4>Total: <span style="color: red">${totalMoney}</span></h4>
+
 						</div>
 
 
 					</div>
 				</div>
 
-				<div class="row">
-					<div class="col-xs-12">
-
-						<div>
-							<ul class="pagination">
-								<c:if test="${numberPage == 1}">
-									<li class="active"><a href="#">Prev&laquo;</a></li>
-									<li><a href="book?pageId=${numberPage+1}">Next&raquo;</a></li>
-								</c:if>
-								
-								<c:if test="${numberPage == maxPage}">
-									<li ><a href="book?pageId=${numberPage-1}">Prev&laquo;</a></li>
-									<li class="active"><a href="#">Next&raquo;</a></li>
-								</c:if>
-
-								<c:if test="${numberPage > 1 && numberPage < maxPage}">
-									<li ><a href="book?pageId=${numberPage-1}">Prev&laquo;</a></li>
-									<li ><a href="book?pageId=${numberPage+1}">Next&raquo;</a></li>
-								</c:if>
-
-
-							</ul>
-						</div>
-
-					</div>
-				</div>
 
 
 
@@ -125,6 +119,7 @@
 	</div>
 
 	<script src='<c:url value="/resources/js/jquery-2.1.4.min.js" />'></script>
+	<script src='<c:url value="resources/js/custom.js" />'></script>
 	<script type="text/javascript">
 		if ('ontouchstart' in document.documentElement)
 			document

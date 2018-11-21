@@ -40,22 +40,6 @@
 
 										<b class="arrow"></b>
 								</li>
-								<li class="">
-										<a href="ModifyBook">
-											<i class="menu-icon fa fa-caret-right"></i>
-											Add new book 
-										</a>
-
-										<b class="arrow"></b>
-								</li>
-								<li class="">
-										<a href="two-menu-1.html">
-											<i class="menu-icon fa fa-caret-right"></i>
-											Top 20 book price
-										</a>
-
-										<b class="arrow"></b>
-								</li>
 									
 							</ul>
 						</li>
@@ -87,7 +71,7 @@
 								<li class="">
 										<a href="CategoryForward?command=TOP3">
 											<i class="menu-icon fa fa-caret-right"></i>
-											Top 3 seling
+											Top 3 selling
 										</a>
 
 										<b class="arrow"></b>
@@ -103,42 +87,7 @@
 									
 							</ul>
 						</li>
-						<li class="">
-							<a href="#" class="dropdown-toggle">
-									<i class="menu-icon fa fa-caret-right"></i>
-
-									Author
-									<b class="arrow fa fa-angle-down"></b>
-							</a>
-							<b class="arrow"></b>
-							<ul class="submenu">
-								<li class="">
-										<a href="AuthorForward">
-											<i class="menu-icon fa fa-caret-right"></i>
-											Display all author
-										</a>
-
-										<b class="arrow"></b>
-								</li>
-								<li class="">
-										<a href="ModifyAuthor">
-											<i class="menu-icon fa fa-caret-right"></i>
-											Add new author 
-										</a>
-
-										<b class="arrow"></b>
-								</li>
-								<li class="">
-										<a href="AuthorForward?command=TOP3REVENUE">
-											<i class="menu-icon fa fa-caret-right"></i>
-											Top 3 author revenue 
-										</a>
-
-										<b class="arrow"></b>
-								</li>
-									
-							</ul>
-						</li>
+						
 					</ul>
 				
 				</li>

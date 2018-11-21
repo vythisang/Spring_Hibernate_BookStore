@@ -66,7 +66,36 @@ $(document).ready(function(){
 		currentlyLink = window.location.href;
 		link = currentlyLink.replace("register","login");
 		window.location = link;
-	})
+	});
+	
+	$("#btnAddCart").click(function(){
+		
+		var id = $("#cartId").attr("attr-id");
+		var name = $("#name").text();
+		var price = $("#price").attr("attr-price");
+		var quantity = $("#quantity").val();
+		var image = $(".cart_product").attr("attr-image");
+		$.ajax({
+			
+			url:"/BookStoreSpring/api/addCart/",
+			type:"POST",
+			data:{
+				
+				id:id,
+				name:name,
+				price:price,
+				quantity:quantity,
+				image:image
+			},
+			success:function(value){
+				alert(value)
+				$("#bookCart").html(value);
+			}
+			
+		});
+
+
+	});
 	
 	
 	

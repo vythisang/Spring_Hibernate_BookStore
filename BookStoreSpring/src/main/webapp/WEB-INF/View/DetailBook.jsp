@@ -64,21 +64,48 @@
 						<div class="features_items">
 							<h2 class="title text-center">Features Items</h2>
 							
-							<c:forEach items="${books}" var="book">
-								<div class="col-sm-4">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src='<c:url value="resources/images/books/${book.getImageBook()}" />'
-													alt="s" width="40%" />
-												<a href="detaiBook?id=${book.getId()}"><h2>${book.getName()}</h2></a>
-	
-												
-											</div>
-										</div>
-									</div>
-								</div>
-							</c:forEach>
+							<table class="table table-condensed">
+					<thead>
+						<tr class="cart_menu">
+							<td class="image">Item</td>
+							<td class="description"></td>
+							<td class="price">Price</td>
+							<td class="quantity">Quantity</td>
+							<td class="category">Category</td>
+							<td class="add">Add to cart</td>
+							<td></td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="cart_product" style="width: 217px;" attr-image="${book.getImageBook()}">
+								<img src='<c:url value="resources/images/books/${book.getImageBook()}" />' width="100%" alt="s">
+							</td>
+							<td class="cart_description">
+								<h4 id="name">${book.getName()}</h4>
+								<p id="cartId" attr-id="${book.getId()}">Book ID: ${book.getId()}</p>
+							</td>
+							<td class="cart_price">
+								<p id="price"  attr-price="${book.getPrice()}" >${book.getPrice()}$</p>
+							</td>
+							<td class="cart_quantity">
+								<input class="cart_quantity_input" id="quantity" type="number" name="quantity" min="1" value="1" />
+							</td>
+							
+							<td class="cart_category">
+								<p id="category">${book.bs_category.getName()}</p>
+							</td>
+							
+							<td class="cart_add">
+								<input class="cart_add_input" id="btnAddCart" type="submit" name="addToCart" value="Add to cart"  size="2">
+							</td>
+							
+						</tr>
+
+						
+						
+					</tbody>
+				</table>
 							
 						</div>
 
@@ -86,32 +113,6 @@
 					</div>
 				</div>
 
-				<div class="row">
-					<div class="col-xs-12">
-
-						<div>
-							<ul class="pagination">
-								<c:if test="${numberPage == 1}">
-									<li class="active"><a href="#">Prev&laquo;</a></li>
-									<li><a href="book?pageId=${numberPage+1}">Next&raquo;</a></li>
-								</c:if>
-								
-								<c:if test="${numberPage == maxPage}">
-									<li ><a href="book?pageId=${numberPage-1}">Prev&laquo;</a></li>
-									<li class="active"><a href="#">Next&raquo;</a></li>
-								</c:if>
-
-								<c:if test="${numberPage > 1 && numberPage < maxPage}">
-									<li ><a href="book?pageId=${numberPage-1}">Prev&laquo;</a></li>
-									<li ><a href="book?pageId=${numberPage+1}">Next&raquo;</a></li>
-								</c:if>
-
-
-							</ul>
-						</div>
-
-					</div>
-				</div>
 
 
 
@@ -125,6 +126,7 @@
 	</div>
 
 	<script src='<c:url value="/resources/js/jquery-2.1.4.min.js" />'></script>
+	<script src='<c:url value="resources/js/custom.js" />'></script>
 	<script type="text/javascript">
 		if ('ontouchstart' in document.documentElement)
 			document

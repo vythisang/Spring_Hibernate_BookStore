@@ -45,9 +45,10 @@
 			<div class="navbar-buttons navbar-header pull-right" role="navigation">
 					<ul class="nav ace-nav">
 						<li class="light-blue dropdown-modal">
-							<%-- <li><i class="fa fa-user"></i> ${user}</li> --%>
-							<a href="#" class=" add-to-cart">
+						
+							<a href="cartBook" class=" add-to-cart" >
 								<i class="fa fa-shopping-cart" style="margin-top: 13px;"></i>
+								<span id="bookCart" style="color:red">${quantity}</span>
 							</a>
 
 						</li>
